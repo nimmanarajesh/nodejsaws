@@ -1,8 +1,7 @@
 const express = require('express');
 const app = express();
-const PORT = 3000;
-const IP = '0.0.0.0';
 
+app.set('port', (process.env.PORT || 5000))
 app.get('/home', (req, res) => {
     res.send(`<!DOCTYPE html>
     <html lang="en">
@@ -40,5 +39,6 @@ app.get('/home', (req, res) => {
     </html>`);
 });
 
-app.listen(PORT, IP);
-console.log(`Application is up and running on http://${IP}:${PORT}`);
+app.listen(app.get('port'), function() {
+    console.log("Node app is running at localhost:" + app.get('port'))
+})
