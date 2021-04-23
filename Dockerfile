@@ -1,4 +1,4 @@
-FROM node:12
+FROM node:latest
 
 WORKDIR /usr/src/app
 
@@ -9,3 +9,5 @@ RUN npm install
 COPY . .
 
 EXPOSE 3000
+
+ENTRYPOINT ["npm","start"]
